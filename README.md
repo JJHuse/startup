@@ -26,3 +26,4 @@ Toward the end of 2020, I joked with my family about a New Year's resolution: ea
 8. React: Application --> react framework
 
 ### Sketch
+![Vision](VISION.png)
