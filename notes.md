@@ -8,3 +8,6 @@ SSH
 Domain name
 - Those were some really long terms and conditions.
 - I added the public IP and wildcard records.
+
+CSS
+- Rule: selector {property:value; another declaration;}
