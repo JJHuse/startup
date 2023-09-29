@@ -11,3 +11,8 @@ Domain name
 
 CSS
 - Rule: selector {property:value; another declaration;}
+
+### Deployment
+#### html
+- deployFiles.sh works as is for both the startup and Simon&reg;
+- This isn't too bad :)
