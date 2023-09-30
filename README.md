@@ -6,7 +6,7 @@ Structure done been done!
 - HTML pages - Three HTML pages: login, home page for the user, and one goal partner page.
 - Links - The login button ("Take charge of your future") links to the user's page. The notification links to the partner's page.
 - Text - Text is used to describe the person to whom a page applies, notifications, and the info table (ideas, progress, today)
-- 3rd party web service - 
+- 3rd party web service - Calendar portion, possibly the login as well.
 - Images - Website logo and profile pictures
 - Login - Input box and submit button for login.
 - Database - Personal goal info (ideas, progress, and daily calendar), profile information, and goal partner connections draw from database.
