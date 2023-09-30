@@ -3,7 +3,7 @@ https://quesadillasmith.net
 
 ## HTML Deliverable
 Structure done been done!
-- HTML pages - Three HTML pages: login, home page for the user, and one goal partner page.
+- HTML pages - Three HTML pages: login, home page for the user, info page for the user, and one goal partner page.
 - Links - The login button ("Take charge of your future") links to the user's page. The notification links to the partner's page. The user info page links to partner's page. Profile link persists in partner page.
 - Text - Text is used to describe the person to whom a page applies, notifications, and the info table (ideas, progress, today)
 - 3rd party web service - Calendar portion, possibly the login as well.
