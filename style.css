@@ -131,3 +131,33 @@ body {
     color:black;
     font-family: 'Tahoma', 'sans-serif';
 }
+
+/* Style the actual dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-bottom-left-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+    background-color: inherit;
+}
+  
+/* Style the links inside the dropdown */
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: inherit;
+}
+
+/* Change color of links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+  
+/* Show the dropdown content when the button is hovered or clicked */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
