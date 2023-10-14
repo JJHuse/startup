@@ -8,24 +8,27 @@ button {
     font-family:Roboto;
     background-color:var(--primary-color);
     border-color: black;
+    color:black;
+    cursor:pointer;
+}
+#underbutton{
     border-bottom-left-radius: 5rem;
     border-bottom-right-radius: 5rem;
-    color:black;
-    width:100%;
     cursor:grab;
 }
-button:active{
+#underbutton:active{
     cursor:grabbing
 }
 
-div {
-    width:40%;
+.login_nav {
+    width:30%;
     float:right;
     clear: both
 }
 
 input{
     width:100%;
+    color:var(--primary-color)
 }
 
 .button, input {
@@ -58,6 +61,9 @@ footer{
     background-color:var(--primary-color);
     flex: 0 20px;
     border-top: 3px solid black;
+    padding-left:0.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
 }
 
 body {
@@ -72,4 +78,56 @@ body {
 }
 #loginregion{
     flex:2;
+}
+
+.friend{
+    background-color:transparent;
+    border:none;
+    width:auto;
+    padding:0.4em;
+    border-radius:2vh;
+    color:var(--primary-color)
+}
+.friend:hover{
+    background-color:var(--primary-color);
+    color:black;
+    cursor: pointer;
+}
+
+#profile_name{
+    font-family: Josefin sans;
+}
+
+.notifications_box{
+    padding-left:1em;
+    padding-right: 0.5em;
+}
+.header-nav{
+    display: flex;
+    background-color: var(--primary-color);
+    justify-content: space-between;
+    padding:0.5em;
+}
+.logout_button{
+    flex:1;
+}
+.profile-link{
+    text-decoration: none;
+    color:inherit;
+    font-family:'Tahoma', 'sans-serif';
+}
+.topbar{
+    display:flex;
+    list-style: none;
+    float:right;
+    flex-direction:row;
+    font-family: 'Tahoma', 'sans-serif';
+}
+.top-right{
+    padding-left:1em;
+}
+.topbar-link{
+    text-decoration: none;
+    color:black;
+    font-family: 'Tahoma', 'sans-serif';
 }

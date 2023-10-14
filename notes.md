@@ -13,6 +13,12 @@ CSS
 - Rule: selector {property:value; another declaration;}
 
 ### Deployment
-#### html
+#### HTML
 - deployFiles.sh works as is for both the startup and Simon&reg;
 - This isn't too bad :)
+#### CSS
+Todo:
+- Hover shading
+- Color theme (Buttons, footer banner)
+- Font consistency
+- Alignment
