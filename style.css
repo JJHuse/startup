@@ -54,6 +54,11 @@ img {
 main {
     flex: 1;
 }
+#home-main{
+    display: flex;
+    flex-direction: row;
+    height:100%;
+}
 
 footer{
     background-color:var(--primary-color);
