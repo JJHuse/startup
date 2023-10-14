@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 :root{
     --primary-color: hsl(48, 51%, 47%);
+    --secondary-color: hsl(48, 51%, 40%);
 }
 
 button {
@@ -52,9 +53,6 @@ img {
 
 main {
     flex: 1;
-    display: flex;
-    flex-direction: row;
-    height:100%;
 }
 
 footer{
@@ -149,15 +147,23 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    background-color: inherit;
+    background-color: var(--primary-color);
 }
 
 /* Change color of links on hover */
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: var(--secondary-color);
+}
+
+.dropdown{
+    height:100%;
 }
   
 /* Show the dropdown content when the button is hovered or clicked */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+#userinfo-profile{
+    width:100vw;
 }
