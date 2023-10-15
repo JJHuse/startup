@@ -22,3 +22,4 @@ Todo:
 - Color theme (Buttons, footer banner)
 - Font consistency
 - Alignment
+- Media queries
