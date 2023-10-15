@@ -1,6 +1,14 @@
 # startup: Vision
 https://quesadillasmith.net
 
+## CSS Deliverable
+- Theme color chosen
+- Design for consistent header implemented in userinfo.html
+- Design for consistent footer implemented in userinfo.html, userpage.html, and userinfo.html
+- partnerpage.html not yet formatted as desired (the page is too big for the window)
+- Profile (userpage) table not yet formatted as desired
+- Window resizing not yet fully handled
+
 ## HTML Deliverable
 Structure done been done!
 - HTML pages - Three HTML pages: login, home page for the user, info page for the user, and one goal partner page.
