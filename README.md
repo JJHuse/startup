@@ -2,12 +2,10 @@
 https://quesadillasmith.net
 
 ## CSS Deliverable
-- Theme color chosen
-- Design for consistent header implemented in userinfo.html
-- Design for consistent footer implemented in userinfo.html, userpage.html, and userinfo.html
-- partnerpage.html not yet formatted as desired (the page is too big for the window)
-- Profile (userpage) table not yet formatted as desired
-- Window resizing not yet fully handled
+- Header, footer, main. Accomplished on most of the pages.
+- Navigation elements done.
+- Responsive to resizing, partially done.
+- Elements, text, and images styled (not complete styling yet)
 
 ## HTML Deliverable
 Structure done been done!
