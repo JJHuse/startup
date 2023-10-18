@@ -62,12 +62,14 @@ main {
 }
 
 footer{
+    box-sizing:border-box;
     background-color:var(--primary-color);
     flex: 0 20px;
     border-top: 3px solid black;
     padding-left:0.5em;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
+    width:100%;
 }
 
 body {
@@ -79,6 +81,12 @@ body {
 }
 #eye{
     flex:1;
+    min-width: 400px;
+}
+@media (max-width: 1000px){
+    #eye{
+        display:none;
+    }
 }
 #loginregion{
     flex:2;

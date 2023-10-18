@@ -23,3 +23,6 @@ Todo:
 - Font consistency
 - Alignment
 - Media queries
+Learned:
+- Border-box sizing helps an element keep track of its padding/border/margin with width and height dimensions
+- Mobile browsers might shrink the body width on even a professional website
