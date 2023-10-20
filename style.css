@@ -23,7 +23,7 @@ button {
 }
 
 .login_nav {
-    width:30%;
+    width:30vw;
     float:right;
     clear: both
 }
@@ -57,9 +57,11 @@ main {
 }
 #home-main{
     display: flex;
-    flex-direction: row;
-    height:100%;
-}
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
 
 footer{
     box-sizing:border-box;
@@ -79,18 +81,18 @@ body {
     display: flex;
     flex-direction: column;
 }
-#eye{
-    flex:1;
-    min-width: 400px;
-}
-@media (max-width: 1000px){
-    #eye{
-        display:none;
-    }
-}
-#loginregion{
+#logo {
+    margin-bottom: 1em;
+  }
+  
+#logo img {
+    max-width: 400px;
+    height: auto;
+  }
+  
+/* #loginregion {
     flex:2;
-}
+  } */
 
 .friend{
     background-color:transparent;
