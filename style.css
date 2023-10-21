@@ -121,7 +121,6 @@ body {
     display: flex;
     background-color: var(--primary-color);
     justify-content: space-between;
-    padding:0.5em;
 }
 .logout_button{
     flex:1;
@@ -134,9 +133,13 @@ body {
 .topbar{
     display:flex;
     list-style: none;
-    float:right;
+    /* float:right; */
     flex-direction:row;
     font-family: 'Tahoma', 'sans-serif';
+    padding:0;
+}
+table.topbar{
+    border-spacing: 0;
 }
 .top-right{
     padding-left:1em;
@@ -145,6 +148,10 @@ body {
     text-decoration: none;
     color:black;
     font-family: 'Tahoma', 'sans-serif';
+    padding:0.5em;
+}
+.topbar-link:hover{
+    background-color:var(--secondary-color);
 }
 
 .dropdown-content {
