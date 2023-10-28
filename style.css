@@ -168,6 +168,18 @@ table.topbar{
 #ideaList {
     font-family: Tahoma, sans-serif;
 }
+#progress_list {
+    padding-left: 20px;
+    list-style: none;
+    font-family: Tahoma, sans-serif;
+}
+#progress_list li {
+    display: flex;
+    align-items: flex-start;
+}
+#progress_list li input[type='checkbox']{
+    flex: 0;
+}
 
 .dropdown-content a {
     padding: 12px 16px;
