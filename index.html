@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <title>Vision</title>
         <link rel="icon" href="Vision_ready.jpg">
+        <script src="login.js"></script>
     </head>
     <body>
         <link rel="stylesheet" href="style.css">
@@ -13,18 +14,15 @@
                 <img src="Vision_ready.jpg" alt="Vision eye">
             </section>
             <section id="loginregion">
-                <form method="get" action="userpage.html">
-                    <!-- Will need to include the action that takes us to the next page -->
-                    <nav class="login_nav">
-                        <input type="text" id="username" placeholder="Username">
-                    </nav>
-                    <nav class="login_nav">
-                        <input type="password" id="password" placeholder="Password">
-                    </nav>
-                    <nav class="login_nav">
-                        <button id="underbutton" type="submit">Take charge of the future.</button>
-                    </nav>
-                </form>
+                <nav class="login_nav">
+                    <input type="text" id="username" placeholder="Username">
+                </nav>
+                <nav class="login_nav">
+                    <input type="password" id="password" placeholder="Password">
+                </nav>
+                <nav class="login_nav">
+                    <button id="underbutton" onclick="login()">Take charge of the future.</button>
+                </nav>
             </section>
         </main>
         <footer>

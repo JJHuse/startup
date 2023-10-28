@@ -108,7 +108,7 @@ body {
     cursor: pointer;
 }
 
-.profile_name{
+#profile_name{
     font-family: Josefin sans;
     font-size:3em;
 }
