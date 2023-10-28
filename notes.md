@@ -41,7 +41,8 @@ Learned:
 - Mobile browsers might shrink the body width on even a professional website
 #### JS
 Here's what it will take:
-- Login
-- Idea handling
+- Login &#x2713;
+- Idea handling &#x2713;
 - Progress handling
+- Making profile
 - Calendar placeholder
