@@ -1,5 +1,10 @@
 # startup: Vision
-https://quesadillasmith.net
+https://startup.quesadillasmith.net
+
+## JS Deliverable
+- (CSS styling ironed out and unified between pages)
+- The login saves the username to local storage
+- The idea list can be added to
 
 ## CSS Deliverable
 - Header, footer, main. Accomplished on most of the pages.

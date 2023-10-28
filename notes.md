@@ -35,7 +35,10 @@ async press(volume = 1.0) {
 - This isn't too bad :)
 #### CSS
 Todo:
-- Consistent page design
+- Mobile formatting
+- Make a checkbox that toggles fill instead of a checkmark
+- Hover-enlarge animation on profile pictures
+
 Learned:
 - Border-box sizing helps an element keep track of its padding/border/margin with width and height dimensions
 - Mobile browsers might shrink the body width on even a professional website
@@ -43,6 +46,11 @@ Learned:
 Here's what it will take:
 - Login &#x2713;
 - Idea handling &#x2713;
+    - TODO: remove idea
 - Progress handling
+    - TODO: store changes, alternate unmodifiable version for partner page
 - Making profile
 - Calendar placeholder
+
+Other todo:
+- Enable enter key for login
