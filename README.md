@@ -3,8 +3,10 @@ https://startup.quesadillasmith.net
 
 ## JS Deliverable
 - (CSS styling ironed out and unified between pages)
-- The login saves the username to local storage
-- The idea list can be added to
+- Login: username is saved to localStorage
+- Database: Most info, if not all of it, in localStorage will go to a database.
+- Websocket: Nothing changed, but I like having notifications in a dropdown instead of in a popup. So the websocket can go there.
+- Interaction logic: mostly information-based, so the foregoing overlaps with this.
 
 ## CSS Deliverable
 - Header, footer, main. Accomplished on most of the pages.
