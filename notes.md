@@ -44,11 +44,13 @@ Learned:
 - Mobile browsers might shrink the body width on even a professional website
 #### JS
 TODO:
-- Making profile
+- Subtask/progress link
 - Notifications
+- DB promises?
 
 Other todo:
 - Enable enter key for login
 - Remove idea
 - Progress storage
 - Calendar
+- Only log in if username and password entered

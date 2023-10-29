@@ -71,4 +71,58 @@ function set_date(){
 }
 
 set_date();
+
+
+function add_progress_element(subtask){
+    let listItem = document.createElement("li");
+
+    const checkbox_child = document.createElement('span');
+    let checked = localStorage.getItem(subtask);
+    if (checked === null){
+        checked = 'false';
+        localStorage.setItem(subtask, false)
+    }
+    if (checked === 'false'){checkbox_child.className = 'mycheckbox_default';}
+    else {checkbox_child.className = 'mycheckbox_checked';}
+
+    checkbox_child.style.display = 'inline';
+    checkbox_child.addEventListener('click', function(){
+        if (localStorage.getItem(subtask) === 'true'){
+            localStorage.setItem(subtask,false);
+            this.className = 'mycheckbox_default';
+        }
+        else{
+            localStorage.setItem(subtask,true);
+            this.className = 'mycheckbox_checked';
+        }
+    })
+    listItem.appendChild(checkbox_child);
+    const subtask_child = document.createElement('span');
+    subtask_child.textContent = subtask;
+    listItem.appendChild(subtask_child)
+
+
+
+    let ul = document.getElementById("progressList");
+    const items = ul.getElementsByTagName('li')
+    if (items.length === 0){
+        ul.appendChild(listItem)
+    }
+    else {
+        const where = items[items.length - 1]
+        ul.insertBefore(listItem, where);
+    }
+}
+function setup_progress(){
+
+    stored = localStorage.getItem('subtask_list');
+    if (stored !== null){
+        const placeholder = document.getElementById('progress_placeholder')
+        placeholder.parentNode.removeChild(placeholder)
+        stored_list = JSON.parse(stored)
+        stored_list.forEach(add_progress_element)
+    }
+}
+
+setup_progress();
   
