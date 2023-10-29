@@ -5,6 +5,10 @@
     --secondary-color: hsl(48, 51%, 40%);
 }
 
+* {
+    font-family: Tahoma, Sans-serif;
+}
+
 button {
     font-family:Roboto;
     background-color:var(--primary-color);
