@@ -1,7 +1,9 @@
 function place_username(){
     let username = localStorage.userName;
-    let nameEl = document.getElementById('profile_name');
-    nameEl.textContent = username;
+    if (username.trim() !== ''){
+        let nameEl = document.getElementById('profile_name');
+        nameEl.textContent = username;
+    }
 }
 
 place_username();
@@ -50,4 +52,23 @@ function idea_listening() {document.getElementById("ideaBox").addEventListener("
 
 setup_idealist();
 idea_listening();
+
+function today(){
+    const today = new Date();
+
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are zero-based
+    const day = today.getDate().toString().padStart(2, '0');
+
+    return year + "-" + month + "-" + day;
+
+}
+
+function set_date(){
+    date = today();
+    today_element = document.getElementById('today')
+    today_element.textContent = 'TODAY: ' + date;
+}
+
+set_date();
   

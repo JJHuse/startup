@@ -43,14 +43,12 @@ Learned:
 - Border-box sizing helps an element keep track of its padding/border/margin with width and height dimensions
 - Mobile browsers might shrink the body width on even a professional website
 #### JS
-Here's what it will take:
-- Login &#x2713;
-- Idea handling &#x2713;
-    - TODO: remove idea
-- Progress handling
-    - TODO: store changes, alternate unmodifiable version for partner page
+TODO:
 - Making profile
-- Calendar placeholder
+- Notifications
 
 Other todo:
 - Enable enter key for login
+- Remove idea
+- Progress storage
+- Calendar
