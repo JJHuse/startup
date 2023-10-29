@@ -22,7 +22,7 @@
                     </div>
                 </td>
             </table>
-            <a class="top-right topbar-link" href="index.html">Log out</a>
+            <a class="top-right topbar-link" href="index.html" onclick="localStorage.clear();">Log out</a>
         </nav>
     </header>
     <main>
@@ -58,35 +58,16 @@
                         </p>
                     </td>
                     <td>
-                        <ol>
+                        <ol id="visionList">
                             <li>
-                                <font face="Tahoma, sans-serif" size="4">Be someone who builds the people around me</font>
-                            </li>
-                            <li>
-                                <font face="Tahoma, sans-serif" size="4">Exist with relaxed but focused purpose. Appreciate and create beauty.</font>
-                            </li>
-                            <li>
-                                <font face="Tahoma, sans-serif" size="4">Reach 5 billion years</font>
+                                <input type="text" id="visionBox" name="varText" placeholder="Add more here" />
                             </li>
                         </ol>
                     </td>
                     <td valign="top">
-                        <ol>
+                        <ol id="subtaskList">
                             <li>
-                                <font face="Tahoma, sans-serif" size="4">Inspire someone new every day</font>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>
-                                        <font face="Tahoma, sans-serif" size="3">Daily sunrise</font>
-                                    </li>
-                                    <li>
-                                        <font face="Tahoma, sans-serif" size="3">Daily sunset</font>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <font face="Tahoma, sans-serif" size="4">Get one day closer to 5 billion years old</font>
+                                <input type="text" id="subtaskBox" name="varText" placeholder="Add more here" />
                             </li>
                         </ol>
                     </td>

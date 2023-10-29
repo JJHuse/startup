@@ -6,55 +6,85 @@ function place_username(){
     }
 }
 
-function place_name(myname, namebox){
-    textElement = document.createTextNode('Name: ' + myname);
-    namebox.parentNode.replaceChild(textElement, namebox);
-    localStorage.setItem('myname', myname)
+function place_thing(text, box, which){
+    const cap = which.charAt(0).toUpperCase() + which.slice(1);
+    textElement = document.createTextNode(cap + ": " + text);
+    box.parentNode.replaceChild(textElement, box);
+    localStorage.setItem(which, text)
 }
-
-function setup_name(){
-    stored = localStorage.getItem('myname');
+function setup_thing(which){
+    stored = localStorage.getItem(which);
     if (stored !== null){
-        place_name(stored, document.getElementById('nameBox'))
+        const box = which + 'Box'
+        place_thing(stored, document.getElementById(box), which)
     }
 }
-
-function name_listening() {document.getElementById("nameBox").addEventListener("keypress", function(event) {
+function thing_listening(which) {
+    const box = which + 'Box';
+    document.getElementById(box).addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       event.preventDefault(); // Prevent the default behavior of the Enter key in the input box
   
-      let inputBox = document.getElementById("nameBox");
+      let inputBox = document.getElementById(box);
       let inputText = inputBox.value;
   
       if (inputText.trim() !== "") {
-        place_name(inputText, inputBox)
+        place_thing(inputText, inputBox, which)
       }
     }
 });
 }
 
-function place_email(email, emailbox){
-    textElement = document.createTextNode('Email: ' + email);
-    emailbox.parentNode.replaceChild(textElement, emailbox);
-    localStorage.setItem('email', email)
+function add_vision(vision) {
+    let listItem = document.createElement("li");
+    listItem.textContent = vision;
+
+    let ol = document.getElementById("visionList");
+    const items = ol.getElementsByTagName('li')
+    const where = items[items.length - 1]
+    ol.insertBefore(listItem, where);
+}
+function add_subtask(subtask){
+    let listItem = document.createElement("li");
+    listItem.textContent = subtask;
+
+    let ol = document.getElementById("subtaskList");
+    const items = ol.getElementsByTagName('li')
+    const where = items[items.length - 1]
+    ol.insertBefore(listItem, where);
 }
 
-function setup_email(){
-    stored = localStorage.getItem('email');
+function setup_list(which){
+    const list = which + '_list';
+    stored = localStorage.getItem(list);
     if (stored !== null){
-        place_email(stored, document.getElementById('emailBox'))
+        const stored_list = JSON.parse(stored);
+        if (which === 'vision'){stored_list.forEach(add_vision);}
     }
 }
-
-function email_listening() {document.getElementById("emailBox").addEventListener("keypress", function(event) {
+function list_listening(which) {
+    const box = which + 'Box';
+    const list = which + '_list'
+    document.getElementById(box).addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       event.preventDefault(); // Prevent the default behavior of the Enter key in the input box
   
-      let inputBox = document.getElementById("emailBox");
+      let inputBox = document.getElementById(box);
       let inputText = inputBox.value;
   
       if (inputText.trim() !== "") {
-        place_email(inputText, inputBox)
+        if (which === 'vision'){add_vision(inputText)}
+        else if (which === 'subtask'){add_subtask(inputText)}
+
+        const storedListString = localStorage.getItem(list);
+        // Deserialize the string to get the existing list (or initialize an empty array if it doesn't exist)
+        let storedList = storedListString ? JSON.parse(storedListString) : [];
+        storedList.push(inputText);
+        const updatedListString = JSON.stringify(storedList);
+        localStorage.setItem(list, updatedListString);
+
+  
+        inputBox.value = ""; // Clear the input box
       }
     }
 });
@@ -62,10 +92,16 @@ function email_listening() {document.getElementById("emailBox").addEventListener
 
 place_username();
 
-setup_name();
+setup_thing('name');
 const namebox = document.getElementById('nameBox')
-if (namebox !== null){ name_listening(); }
+if (namebox !== null){ thing_listening('name'); }
 
-setup_email();
+setup_thing('email');
 const emailbox = document.getElementById('emailBox')
-if (emailbox !== null){ email_listening(); }
+if (emailbox !== null){ thing_listening('email'); }
+
+setup_list('vision');
+list_listening('vision');
+
+setup_list('subtask');
+list_listening('subtask');
