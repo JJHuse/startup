@@ -4,7 +4,7 @@ https://startup.quesadillasmith.net
 ## JS Deliverable
 - (CSS styling ironed out and unified between pages)
 - Login: username is saved to localStorage
-- Database: Most info, if not all of it, in localStorage will go to a database.
+- Database: Most info in localStorage will go to a database. Logout deletes local storage. 
 - Websocket: Nothing changed, but I like having notifications in a dropdown instead of in a popup. So the websocket can go there.
 - Interaction logic: mostly information-based, so the foregoing overlaps with this.
 
