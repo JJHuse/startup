@@ -1,13 +1,17 @@
 # startup: Vision
 https://startup.quesadillasmith.net
 
-## Internal Service Endpoints
-- Network
-- Vision
-- Task
-- Idea...?
-## Third-party Service Endpoints
-- Calendar
+## Service Endpoints
+- Create an HTTP service using Node.js and Express
+- Frontend served up using express static middleware
+- Your backend provides service endpoints
+  - Network
+  - Vision
+  - Task
+  - Idea...?
+- Your frontend calls your service endpoints
+- Your frontend calls third party service endpoints
+  - Calendar
 
 Other to-dos
 - Notifications both hover and click
