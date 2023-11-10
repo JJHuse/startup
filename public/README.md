@@ -3,13 +3,16 @@ https://startup.quesadillasmith.net
 
 ## Service Endpoints
 - Create an HTTP service using Node.js and Express
-- Frontend served up using express static middleware DONE
-- Your backend provides service endpoints
-  - Network
-  - Vision
-  - Task
-  - Idea...?
-- Your frontend calls your service endpoints
+  - Frontend served up using express static middleware DONE
+  - Your backend provides service endpoints
+    - Localstorage conversion: group info by user
+      - Creatable person
+      - Vision
+      - Task
+      - Name
+    - Network
+    - Idea...?
+  - Your frontend calls your service endpoints
 - Your frontend calls third party service endpoints
   - Calendar
 
@@ -18,6 +21,8 @@ Other to-dos
 - Login enter key
 - Subtask retention
 - Input box products should be removable
+- Individual profile pics
+- Take email off until it's needed
 
 ## JS Deliverable
 - (CSS styling ironed out and unified between pages)

@@ -24,3 +24,14 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+let people = {}
+function get_person(id){
+    return people[id]
+}
+function add_person(id){
+    people[id] = {}
+}
+function add_attribute(id, attribute, value){
+    people[id][attribute] = value
+}
