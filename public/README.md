@@ -16,6 +16,8 @@ https://startup.quesadillasmith.net
 Other to-dos
 - Notifications both hover and click
 - Login enter key
+- Subtask retention
+- Input box products should be removable
 
 ## JS Deliverable
 - (CSS styling ironed out and unified between pages)
@@ -67,3 +69,8 @@ Toward the end of 2020, I joked with my family about a New Year's resolution: ea
 
 ### Sketch
 ![Vision](VISION.png)
+
+## Someday wishlist
+- Round profile pictures
+- Common icons
+- Search bar
