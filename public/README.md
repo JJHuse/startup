@@ -3,7 +3,7 @@ https://startup.quesadillasmith.net
 
 ## Service Endpoints
 - Create an HTTP service using Node.js and Express
-- Frontend served up using express static middleware
+- Frontend served up using express static middleware DONE
 - Your backend provides service endpoints
   - Network
   - Vision
