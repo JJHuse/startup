@@ -1,6 +1,18 @@
 # startup: Vision
 https://startup.quesadillasmith.net
 
+## Internal Service Endpoints
+- Network
+- Vision
+- Task
+- Idea...?
+## Third-party Service Endpoints
+- Calendar
+
+Other to-dos
+- Notifications both hover and click
+- Login enter key
+
 ## JS Deliverable
 - (CSS styling ironed out and unified between pages)
 - Login: username is saved to localStorage
