@@ -16,14 +16,17 @@ button {
     color:black;
     cursor:pointer;
 }
-#underbutton{
-    border-bottom-left-radius: 5rem;
-    border-bottom-right-radius: 5rem;
-    cursor:grab;
-    width:100%;
+.underbutton{
+    width:50%;
 }
-#underbutton:active{
-    cursor:grabbing
+#underbutton1{
+    border-bottom-left-radius: 5rem;
+}
+#underbutton2{
+    border-bottom-right-radius: 5rem;
+}
+#loginbuttons {
+    display: flex;
 }
 span.mycheckbox{
     display: none;
@@ -231,4 +234,10 @@ table.topbar{
 .table_header{
     font-family: Tahoma, sans-serif;
     font-size: 1.5em;
+}
+
+.error {
+    color: darkred;
+    text-align: center;
+    border: 1px solid darkred;
 }

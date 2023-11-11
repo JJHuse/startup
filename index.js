@@ -15,6 +15,18 @@ const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // Internal endpoints go here
+apiRouter.post('/person', (req, res) => {
+  const id = req.body.id;
+  console.log(`POST /api/person/${id}`);
+  add_person(id);
+  res.json({id});
+});
+apiRouter.get('/person/:id', (req, res) => {
+  const id = req.params.id;
+  console.log(`GET /api/person/${id}`);
+  const person = get_person(id);
+  res.send(person);
+});
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
