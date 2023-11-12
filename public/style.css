@@ -229,6 +229,8 @@ table.topbar{
 
 #userinfo-profile{
     width:100vw;
+    display: flex;
+    align-items: flex-end;
 }
 
 .table_header{
@@ -240,4 +242,10 @@ table.topbar{
     color: darkred;
     text-align: center;
     border: 1px solid darkred;
+}
+#quote{
+    font-size: 0.8em;
+    text-align: right;
+    margin-right:1em;
+    margin-left:5em;
 }

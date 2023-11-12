@@ -5,9 +5,9 @@ https://startup.quesadillasmith.net
 - HTTP service using Node.js and Express
   - index.html comes through Express
   - Backend endpoints: add person, get person, add attribute
-  - Frontend calls them
+  - Frontend calls them with fetch
 - Your frontend calls third party service endpoints
-  - Did not do. 
+  - Quote on the user profile. 
 
 ## JS Deliverable
 - (CSS styling ironed out and unified between pages)
@@ -61,6 +61,7 @@ Toward the end of 2020, I joked with my family about a New Year's resolution: ea
 ![Vision](VISION.png)
 
 ## General to-do list:
+- Get real calendar in there
 - Notifications both hover and click
 - Login enter key
 - Input box products should be removable
