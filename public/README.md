@@ -6,10 +6,7 @@ https://startup.quesadillasmith.net
   - Frontend served up using express static middleware DONE
   - Your backend provides service endpoints
     - Localstorage conversion: group info by user
-      - Creatable person
-      - Vision
-      - Task
-      - Name
+      - Send edit boxes to server
     - Network
     - Idea...?
   - Your frontend calls your service endpoints
@@ -23,6 +20,7 @@ Other to-dos
 - Input box products should be removable
 - Individual profile pics
 - Take email off until it's needed
+- Refuse to create user if user already exists
 
 ## JS Deliverable
 - (CSS styling ironed out and unified between pages)

@@ -11,12 +11,25 @@ function place_thing(text, box, which){
     textElement = document.createTextNode(cap + ": " + text);
     box.parentNode.replaceChild(textElement, box);
     localStorage.setItem(which, text)
+    fetch(`/api/person/${localStorage.userName}/attribute`, {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: `{"attribute":"${which}", "value":"${text}"}`,
+    });
 }
-function setup_thing(which){
+async function setup_thing(which){
     stored = localStorage.getItem(which);
     if (stored !== null){
         const box = which + 'Box'
         place_thing(stored, document.getElementById(box), which)
+    } else {
+        const response = await fetch(`/api/person/${localStorage.userName}`)
+        const data = await response.json()
+        if (data[which] !== undefined){
+            const box = which + 'Box'
+            place_thing(data[which], document.getElementById(box), which)
+            // TODO: to not have to send an http request for every box, find a good time to bring all server info to local storage 
+        };
     }
 }
 function thing_listening(which) {

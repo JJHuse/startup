@@ -28,6 +28,15 @@ apiRouter.get('/person/:id', (req, res) => {
   const person = get_person(id);
   res.send(person);
 });
+apiRouter.post('/person/:id/attribute', (req, res) => {
+  const id = req.params.id;
+  const attribute = req.body.attribute;
+  const value = req.body.value;
+  console.log(`POST /api/person/${id}/attribute/${attribute}`);
+  add_attribute(id, attribute, value);
+  const person = get_person(id);
+  res.send(person);
+});
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
