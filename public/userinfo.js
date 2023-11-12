@@ -11,25 +11,12 @@ function place_thing(text, box, which){
     textElement = document.createTextNode(cap + ": " + text);
     box.parentNode.replaceChild(textElement, box);
     localStorage.setItem(which, text)
-    fetch(`/api/person/${localStorage.userName}/attribute`, {
-        method: 'POST',
-        headers: {'content-type': 'application/json'},
-        body: `{"attribute":"${which}", "value":"${text}"}`,
-    });
 }
-async function setup_thing(which){
+function setup_thing(which){
     stored = localStorage.getItem(which);
     if (stored !== null){
         const box = which + 'Box'
         place_thing(stored, document.getElementById(box), which)
-    } else {
-        const response = await fetch(`/api/person/${localStorage.userName}`)
-        const data = await response.json()
-        if (data[which] !== undefined){
-            const box = which + 'Box'
-            place_thing(data[which], document.getElementById(box), which)
-            // TODO: to not have to send an http request for every box, find a good time to bring all server info to local storage 
-        };
     }
 }
 function thing_listening(which) {
@@ -43,6 +30,11 @@ function thing_listening(which) {
   
       if (inputText.trim() !== "") {
         place_thing(inputText, inputBox, which)
+        fetch(`/api/person/${localStorage.userName}/attribute`, {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: `{"attribute":"${which}", "value":"${inputText}"}`,
+        });
       }
     }
 });
@@ -73,6 +65,7 @@ function setup_list(which){
     if (stored !== null){
         const stored_list = JSON.parse(stored);
         if (which === 'vision'){stored_list.forEach(add_vision);}
+        else if (which === 'subtask'){stored_list.forEach(add_subtask);}
     }
 }
 function list_listening(which) {
@@ -95,6 +88,11 @@ function list_listening(which) {
         storedList.push(inputText);
         const updatedListString = JSON.stringify(storedList);
         localStorage.setItem(list, updatedListString);
+        fetch(`/api/person/${localStorage.userName}/attribute`, {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify({ attribute: list, value: updatedListString })
+        });
 
   
         inputBox.value = ""; // Clear the input box
@@ -103,18 +101,17 @@ function list_listening(which) {
 });
 }
 
+const thingSet = new Set(['name', 'email']);
+const listSet = new Set(['vision', 'subtask']);
+
 place_username();
 
-setup_thing('name');
-const namebox = document.getElementById('nameBox')
-if (namebox !== null){ thing_listening('name'); }
-
-setup_thing('email');
-const emailbox = document.getElementById('emailBox')
-if (emailbox !== null){ thing_listening('email'); }
-
-setup_list('vision');
-list_listening('vision');
-
-setup_list('subtask');
-list_listening('subtask');
+for (let thing of thingSet){
+    setup_thing(thing);
+    const box = document.getElementById(thing + 'Box')
+    if (box !== null){ thing_listening(thing); }
+}
+for (let list of listSet){
+    setup_list(list);
+    list_listening(list);
+}

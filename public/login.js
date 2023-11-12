@@ -1,3 +1,29 @@
+const thingSet = new Set(['name', 'email']);
+const listSet = new Set(['vision_list', 'subtask_list']);
+
+async function bring_local(){
+  const response = await fetch(`/api/person/${localStorage.userName}`)
+  const data = await response.json()
+  if (Object.keys(data).length > 0){
+      for (let key in data) {
+          if (thingSet.has(key)){
+              localStorage.setItem(key, data[key]);
+          }
+          else if(listSet.has(key)){
+              localStorage.setItem(key, JSON.stringify(data[key]));
+          }
+      } 
+  };
+
+  // Convert stringified lists back to arrays
+  listSet.forEach(key => {
+    const item = localStorage.getItem(key);
+    if (item) {
+      localStorage.setItem(key, JSON.parse(item));
+    }
+  });
+}
+
 async function login() {
   const nameEl = document.querySelector("#username");
 
@@ -6,6 +32,7 @@ async function login() {
     const person = await response.json();
     localStorage.setItem("userName", nameEl.value);
     window.location.href = "userpage.html";
+    bring_local();
   } catch {
     loginError();
   }
