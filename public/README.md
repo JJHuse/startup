@@ -2,21 +2,12 @@
 https://startup.quesadillasmith.net
 
 ## Service Endpoints
-- Create an HTTP service using Node.js and Express
-  - Frontend served up using express static middleware DONE
-  - Your backend provides service endpoints
-  - Your frontend calls your service endpoints
+- HTTP service using Node.js and Express
+  - index.html comes through Express
+  - Backend endpoints: add person, get person, add attribute
+  - Frontend calls them
 - Your frontend calls third party service endpoints
-  - Calendar
-
-Other to-dos
-- Notifications both hover and click
-- Login enter key
-- Subtask retention
-- Input box products should be removable
-- Individual profile pics
-- Take email off until it's needed
-- Refuse to create user if user already exists
+  - Did not do. 
 
 ## JS Deliverable
 - (CSS styling ironed out and unified between pages)
@@ -69,7 +60,15 @@ Toward the end of 2020, I joked with my family about a New Year's resolution: ea
 ### Sketch
 ![Vision](VISION.png)
 
-## Someday wishlist
+## General to-do list:
+- Notifications both hover and click
+- Login enter key
+- Input box products should be removable
+- Individual profile pics
+- Take email off until it's needed
+- Refuse to create user if user already exists
+
+## General wishlist
 - Round profile pictures
 - Common icons
 - Search bar
