@@ -1,5 +1,5 @@
 const thingSet = new Set(['name', 'email']);
-const listSet = new Set(['vision_list', 'subtask_list']);
+const listSet = new Set(['vision_list', 'subtask_list', 'idea_list']);
 
 async function bring_local(){
   const response = await fetch(`/api/person/${localStorage.userName}`)

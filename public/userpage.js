@@ -42,6 +42,11 @@ function idea_listening() {document.getElementById("ideaBox").addEventListener("
         storedList.push(inputText);
         const updatedListString = JSON.stringify(storedList);
         localStorage.setItem("idea_list", updatedListString);
+        fetch(`/api/person/${localStorage.userName}/attribute`, {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify({ attribute: 'idea_list', value: updatedListString })
+        });
 
   
         inputBox.value = ""; // Clear the input box
