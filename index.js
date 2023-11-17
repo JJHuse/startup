@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const DB = require('./database.js');
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -49,11 +50,14 @@ app.listen(port, () => {
 
 let people = {}
 function get_person(id){
-    return people[id]
+  // Should there be an await in here?
+  return DB.getPerson(id);
 }
 function add_person(id){
-    people[id] = {}
+  person = {id: id}
+  DB.addPerson(person);
+  // people[id] = {}
 }
 function add_attribute(id, attribute, value){
-    people[id][attribute] = value
+  DB.addAttribute(id, attribute, value);
 }

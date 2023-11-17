@@ -2,6 +2,7 @@ const thingSet = new Set(['name', 'email']);
 const listSet = new Set(['vision_list', 'subtask_list', 'idea_list']);
 
 async function bring_local(){
+  debugger;
   const response = await fetch(`/api/person/${localStorage.userName}`)
   const data = await response.json()
   if (Object.keys(data).length > 0){
@@ -25,14 +26,16 @@ async function bring_local(){
 }
 
 async function login() {
+  debugger;
   const nameEl = document.querySelector("#username");
 
   try{
+    //FIXME: this fetch
     const response = await fetch(`/api/person/${nameEl.value}`);
     const person = await response.json();
     localStorage.setItem("userName", nameEl.value);
-    window.location.href = "userpage.html";
     bring_local();
+    window.location.href = "userpage.html";
   } catch {
     loginError();
   }

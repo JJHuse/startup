@@ -29,6 +29,11 @@ async press(volume = 1.0) {
 }
 ```
 
+MongoDB
+- Free 512 MB cluster
+- Not relational. All JSON.
+- Need to add IP, including AWS server IP
+
 ### Deployment
 #### HTML
 - deployFiles.sh works as is for both the startup and Simon&reg;
