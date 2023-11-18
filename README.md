@@ -1,6 +1,11 @@
 # startup: Vision
 https://startup.quesadillasmith.net
 
+## Database
+- Create user adds to database
+- All input boxes on the user profile and user info pages add to database
+- Login retrieves person data from database
+
 ## Service Endpoints
 - HTTP service using Node.js and Express
   - index.html comes through Express
