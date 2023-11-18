@@ -16,11 +16,11 @@ const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // Internal endpoints go here
-apiRouter.post('/person', (req, res) => {
+apiRouter.post('/person', async (req, res) => {
   const id = req.body.id;
   console.log(`POST /api/person/${id}`);
   add_person(id);
-  const person = get_person(id);
+  const person = await get_person(id);
   res.send(person);
 });
 apiRouter.get('/person/:id', async (req, res) => {
@@ -30,13 +30,13 @@ apiRouter.get('/person/:id', async (req, res) => {
   console.log('person gotten, before sending result: ', person)
   res.send(person);
 });
-apiRouter.post('/person/:id/attribute', (req, res) => {
+apiRouter.post('/person/:id/attribute', async (req, res) => {
   const id = req.params.id;
   const attribute = req.body.attribute;
   const value = req.body.value;
   console.log(`POST /api/person/${id}/attribute/${attribute}`);
   add_attribute(id, attribute, value);
-  const person = get_person(id);
+  const person = await get_person(id);
   res.send(person);
 });
 
