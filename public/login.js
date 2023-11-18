@@ -2,9 +2,11 @@ const thingSet = new Set(['name', 'email']);
 const listSet = new Set(['vision_list', 'subtask_list', 'idea_list']);
 
 async function bring_local(){
-  debugger;
-  const response = await fetch(`/api/person/${localStorage.userName}`)
-  const data = await response.json()
+  console.log('bring_local');
+  const response = await fetch(`/api/person/${localStorage.userName}`);
+  console.log('brought local');
+  const data = await response.json();
+  console.log('data awaited');
   if (Object.keys(data).length > 0){
       for (let key in data) {
           if (thingSet.has(key)){
@@ -14,6 +16,10 @@ async function bring_local(){
               localStorage.setItem(key, JSON.stringify(data[key]));
           }
       } 
+  } else {
+      console.log('No data keys');
+      console.log('data: ', data);
+      console.log('response: ', response)
   };
 
   // Convert stringified lists back to arrays
@@ -26,17 +32,19 @@ async function bring_local(){
 }
 
 async function login() {
-  debugger;
   const nameEl = document.querySelector("#username");
 
   try{
     //FIXME: this fetch
-    const response = await fetch(`/api/person/${nameEl.value}`);
-    const person = await response.json();
+    // const response = await fetch(`/api/person/${nameEl.value}`);
+    // const person = await response.json();
     localStorage.setItem("userName", nameEl.value);
-    bring_local();
+    console.log('Going to bring local');
+    await bring_local();
+    console.log('Done bringing local');
     window.location.href = "userpage.html";
   } catch {
+    console.log('login catch');
     loginError();
   }
 }

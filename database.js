@@ -20,9 +20,12 @@ async function addPerson(person) {
   return result;
 }
 
-function getPerson(id) {
+async function getPerson(id) {
+  console.log('getPerson');
   const query = { id: id};
-  return personCollection.find(query);
+  const person = await personCollection.find(query).next();
+  console.log('person: ', person);
+  return person;
 }
 
 async function addAttribute(id, attribute, value) {

@@ -23,10 +23,11 @@ apiRouter.post('/person', (req, res) => {
   const person = get_person(id);
   res.send(person);
 });
-apiRouter.get('/person/:id', (req, res) => {
+apiRouter.get('/person/:id', async (req, res) => {
   const id = req.params.id;
   console.log(`GET /api/person/${id}`);
-  const person = get_person(id);
+  const person = await get_person(id);
+  console.log('person gotten, before sending result: ', person)
   res.send(person);
 });
 apiRouter.post('/person/:id/attribute', (req, res) => {
@@ -50,11 +51,13 @@ app.listen(port, () => {
 
 let people = {}
 function get_person(id){
+  console.log('get_person');
   // Should there be an await in here?
-  return DB.getPerson(id);
+  const person = DB.getPerson(id);
+  return person;
 }
 function add_person(id){
-  person = {id: id}
+  person = {id: id};
   DB.addPerson(person);
   // people[id] = {}
 }
