@@ -10,6 +10,9 @@ async function bring_local(username, password){
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
+  if (!response.ok){
+    throw new Error('User not found');
+  }
   const data = await response.json();
   if (Object.keys(data).length > 0){
     localStorage.setItem("userName", username)
@@ -38,7 +41,7 @@ async function login() {
   const username = document.querySelector("#username")?.value;
   const password = document.querySelector("#password")?.value;
 
-  if (typeof username === 'undefined' || typeof password === 'undefined') {
+  if (username.trim() === "" || password.trim() === "") {
     loginError('Enter username and password');
     return;
   }
@@ -58,7 +61,7 @@ async function create_user() {
   const username = document.querySelector("#username")?.value;
   const password = document.querySelector("#password")?.value;
 
-  if (typeof username === 'undefined' || typeof password === 'undefined') {
+  if (username.trim() === "" || password.trim() === "") {
     loginError('Enter username and password');
     return;
   }
