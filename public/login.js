@@ -29,12 +29,12 @@ async function bring_local(username, password){
   };
 
   // Convert stringified lists back to arrays
-  // listSet.forEach(key => {
-  //   const item = localStorage.getItem(key);
-  //   if (item) {
-  //     localStorage.setItem(key, JSON.parse(item));
-  //   }
-  // });
+  listSet.forEach(key => {
+    const item = localStorage.getItem(key);
+    if (item) {
+      localStorage.setItem(key, JSON.parse(item));
+    }
+  });
 }
 
 async function login() {

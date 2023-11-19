@@ -6,8 +6,6 @@ const DB = require('./database.js');
 
 const authCookieName = 'token';
 
-//TODO: check for duplicate username
-
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
