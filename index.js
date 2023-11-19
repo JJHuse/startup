@@ -27,12 +27,12 @@ app.use(`/api`, apiRouter);
 // Internal endpoints go here
 apiRouter.post('/create', async (req, res) => {
   const username = req.body.username;
-  const passwordHash = req.body.password;
+  const prehashPassword = req.body.password;
   console.log(`POST /api/create/${username}`);
   if (await DB.getPerson(username)) {
     res.status(409).send({ msg: 'Existing user' });
   } else{
-    const person = add_person(username, passwordHash);
+    const person = await add_person(username, prehashPassword);
 
     setAuthCookie(res, person.token);
 
@@ -110,8 +110,8 @@ function get_person(id){
   const person = DB.getPerson(id);
   return person;
 }
-function add_person(username, password){
-  return DB.addPerson(username, password);
+async function add_person(username, password){
+  return await DB.addPerson(username, password);
   // people[id] = {}
 }
 function add_attribute(id, attribute, value){
