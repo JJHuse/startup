@@ -1,6 +1,11 @@
 # startup: Vision
 https://startup.quesadillasmith.net
 
+## Login
+- New user: 'create' button
+- Existing user: 'log in' button
+- Database access (MongoDB) now either happens at login or through secure router authtoken
+
 ## Database
 - Create user adds to database
 - All input boxes on the user profile and user info pages add to database
@@ -66,15 +71,14 @@ Toward the end of 2020, I joked with my family about a New Year's resolution: ea
 ![Vision](VISION.png)
 
 ## General to-do list:
+- Real partners, search bar
 - Get real calendar in there
 - Notifications both hover and click
 - Login enter key
 - Input box products should be removable
 - Individual profile pics
 - Take email off until it's needed
-- Refuse to create user if user already exists
 
 ## General wishlist
 - Round profile pictures
 - Common icons
-- Search bar
