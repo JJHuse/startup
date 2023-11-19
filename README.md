@@ -77,8 +77,9 @@ Toward the end of 2020, I joked with my family about a New Year's resolution: ea
 - Login enter key
 - Input box products should be removable
 - Individual profile pics
-- Take email off until it's needed
+- Remove url no-logout loophole
 
 ## General wishlist
 - Round profile pictures
 - Common icons
+- Take email off until it's needed
