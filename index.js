@@ -48,7 +48,8 @@ apiRouter.post('/login', async (req, res) => {
   if (person){
     if (await bcrypt.compare(password, person.password)) {
       setAuthCookie(res, person.token);
-      res.send(person);
+      const { password, ...personWithoutPassword } = person;
+      res.send(personWithoutPassword);
       return;
     }
   }
@@ -81,7 +82,8 @@ secureApiRouter.post('/person/:id/attribute', async (req, res) => {
   console.log(`POST /api/person/${id}/attribute/${attribute}`);
   add_attribute(id, attribute, value);
   const person = await get_person(id);
-  res.send(person);
+  const { password, ...personWithoutPassword } = person;
+  res.send(personWithoutPassword);
 });
 
 // setAuthCookie in the HTTP response
