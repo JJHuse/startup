@@ -1,4 +1,6 @@
 const { MongoClient } = require('mongodb');
+const bcrypt = require('bcrypt');
+const uuid = require('uuid');
 const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
@@ -15,14 +17,20 @@ const personCollection = db.collection('person');
   process.exit(1);
 });
 
-async function addPerson(person) {
-  const result = await personCollection.insertOne(person);
-  return result;
+async function addPerson(username, password) {
+  const passwordHash = await bcrypt.hash(password, 10);
+  const user = {
+    username: username,
+    password: passwordHash,
+    token: uuid.v4(),
+  };
+  const result = await personCollection.insertOne(user);
+  return user;
 }
 
 async function getPerson(id) {
   console.log('getPerson');
-  const query = { id: id};
+  const query = { username: id};
   const person = await personCollection.find(query).next();
   console.log('person: ', person);
   return person;
@@ -35,4 +43,8 @@ async function addAttribute(id, attribute, value) {
   await personCollection.updateOne(query, update, options);
 }
 
-module.exports = { addPerson, getPerson, addAttribute };
+function getUserByToken(token) {
+  return userCollection.findOne({ token: token });
+}
+
+module.exports = { addPerson, getPerson, addAttribute, getUserByToken };

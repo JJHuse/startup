@@ -1,25 +1,28 @@
 const thingSet = new Set(['name', 'email']);
 const listSet = new Set(['vision_list', 'subtask_list', 'idea_list']);
 
-async function bring_local(){
+async function bring_local(username, password){
   console.log('bring_local');
-  const response = await fetch(`/api/person/${localStorage.userName}`);
-  console.log('brought local');
+  const response = await fetch('/api/person/', {
+    method: 'post',
+    body: JSON.stringify({ username: username, password: password }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
   const data = await response.json();
-  console.log('data awaited');
   if (Object.keys(data).length > 0){
-      for (let key in data) {
-          if (thingSet.has(key)){
-              localStorage.setItem(key, data[key]);
-          }
-          else if(listSet.has(key)){
-              localStorage.setItem(key, JSON.stringify(data[key]));
-          }
-      } 
+    localStorage.setItem("userName", username)
+    for (let key in data) {
+        if (thingSet.has(key)){
+            localStorage.setItem(key, data[key]);
+        }
+        else if(listSet.has(key)){
+            localStorage.setItem(key, JSON.stringify(data[key]));
+        }
+    } 
   } else {
       console.log('No data keys');
-      console.log('data: ', data);
-      console.log('response: ', response)
   };
 
   // Convert stringified lists back to arrays
@@ -32,15 +35,17 @@ async function bring_local(){
 }
 
 async function login() {
-  const nameEl = document.querySelector("#username");
+  const username = document.querySelector("#username")?.value;
+  const password = document.querySelector("#password")?.value;
+
+  if (typeof username === 'undefined' || typeof password === 'undefined') {
+    loginError('Enter username and password');
+    return;
+  }
 
   try{
-    //FIXME: this fetch
-    // const response = await fetch(`/api/person/${nameEl.value}`);
-    // const person = await response.json();
-    localStorage.setItem("userName", nameEl.value);
     console.log('Going to bring local');
-    await bring_local();
+    await bring_local(username, password);
     console.log('Done bringing local');
     window.location.href = "userpage.html";
   } catch {
@@ -50,15 +55,25 @@ async function login() {
 }
 
 async function create_user() {
-  const nameEl = document.querySelector("#username");
+  const username = document.querySelector("#username")?.value;
+  const password = document.querySelector("#password")?.value;
+
+  if (typeof username === 'undefined' || typeof password === 'undefined') {
+    loginError('Enter username and password');
+    return;
+  }
+
   try{
     const response = await fetch('/api/person', {
       method: 'POST',
       headers: {'content-type': 'application/json'},
-      body: `{"id":"${nameEl.value}"}`,
+      body: JSON.stringify({ username: username, password: password }),
     });
-    localStorage.setItem("userName", nameEl.value);
-    window.location.href = "userpage.html";
+
+    if (response.ok){
+      localStorage.setItem("username", username);
+      window.location.href = "userpage.html";
+    }
   }
   catch{
     loginError('Problem creating user');
