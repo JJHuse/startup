@@ -1,5 +1,5 @@
 function place_username(){
-    let username = localStorage.userName;
+    let username = localStorage.username;
     if (username.trim() !== ''){
         let nameEl = document.getElementById('profile_name');
         nameEl.textContent = username;
@@ -42,7 +42,7 @@ function idea_listening() {document.getElementById("ideaBox").addEventListener("
         storedList.push(inputText);
         const updatedListString = JSON.stringify(storedList);
         localStorage.setItem("idea_list", updatedListString);
-        fetch(`/api/person/${localStorage.userName}/attribute`, {
+        fetch(`/api/person/${localStorage.username}/attribute`, {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify({ attribute: 'idea_list', value: updatedListString })

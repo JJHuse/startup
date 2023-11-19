@@ -25,10 +25,10 @@ const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // Internal endpoints go here
-apiRouter.post('/person', async (req, res) => {
+apiRouter.post('/create', async (req, res) => {
   const username = req.body.username;
   const passwordHash = req.body.password;
-  console.log(`POST /api/person/${username}`);
+  console.log(`POST /api/create/${username}`);
   if (await DB.getPerson(username)) {
     res.status(409).send({ msg: 'Existing user' });
   } else{
@@ -42,10 +42,10 @@ apiRouter.post('/person', async (req, res) => {
   }
 });
 
-apiRouter.get('/person/', async (req, res) => {
+apiRouter.post('/login', async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  console.log(`GET /api/person/${username}`);
+  console.log(`GET /api/login/${username}`);
   const person = await get_person(username);
   if (person){
     if (await bcrypt.compare(password, person.password)) {

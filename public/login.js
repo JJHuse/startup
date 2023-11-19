@@ -3,7 +3,7 @@ const listSet = new Set(['vision_list', 'subtask_list', 'idea_list']);
 
 async function bring_local(username, password){
   console.log('bring_local');
-  const response = await fetch('/api/person/', {
+  const response = await fetch('/api/login/', {
     method: 'post',
     body: JSON.stringify({ username: username, password: password }),
     headers: {
@@ -15,7 +15,7 @@ async function bring_local(username, password){
   }
   const data = await response.json();
   if (Object.keys(data).length > 0){
-    localStorage.setItem("userName", username)
+    localStorage.setItem("username", username)
     for (let key in data) {
         if (thingSet.has(key)){
             localStorage.setItem(key, data[key]);
@@ -29,12 +29,12 @@ async function bring_local(username, password){
   };
 
   // Convert stringified lists back to arrays
-  listSet.forEach(key => {
-    const item = localStorage.getItem(key);
-    if (item) {
-      localStorage.setItem(key, JSON.parse(item));
-    }
-  });
+  // listSet.forEach(key => {
+  //   const item = localStorage.getItem(key);
+  //   if (item) {
+  //     localStorage.setItem(key, JSON.parse(item));
+  //   }
+  // });
 }
 
 async function login() {
@@ -67,7 +67,7 @@ async function create_user() {
   }
 
   try{
-    const response = await fetch('/api/person', {
+    const response = await fetch('/api/create', {
       method: 'POST',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({ username: username, password: password }),

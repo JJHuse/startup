@@ -1,5 +1,5 @@
 function place_username(){
-    let username = localStorage.userName;
+    let username = localStorage.username;
     if (username.trim() !== ''){
         let nameEl = document.getElementById('profile_name');
         nameEl.textContent = username;
@@ -30,7 +30,7 @@ function thing_listening(which) {
   
       if (inputText.trim() !== "") {
         place_thing(inputText, inputBox, which)
-        fetch(`/api/person/${localStorage.userName}/attribute`, {
+        fetch(`/api/person/${localStorage.username}/attribute`, {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: `{"attribute":"${which}", "value":"${inputText}"}`,
@@ -88,7 +88,7 @@ function list_listening(which) {
         storedList.push(inputText);
         const updatedListString = JSON.stringify(storedList);
         localStorage.setItem(list, updatedListString);
-        fetch(`/api/person/${localStorage.userName}/attribute`, {
+        fetch(`/api/person/${localStorage.username}/attribute`, {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify({ attribute: list, value: updatedListString })

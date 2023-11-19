@@ -1,5 +1,5 @@
 function logout() {
-    localStorage.removeItem('userName');
+    localStorage.removeItem('username');
     fetch(`/api/auth/logout`, {
       method: 'delete',
     }).then(() => (window.location.href = '/'));

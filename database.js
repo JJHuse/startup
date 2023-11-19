@@ -37,14 +37,14 @@ async function getPerson(id) {
 }
 
 async function addAttribute(id, attribute, value) {
-  const query = { id: id};
+  const query = { username: id};
   const update = { $set: { [attribute]: value } };
   const options = { upsert: true };
   await personCollection.updateOne(query, update, options);
 }
 
 function getUserByToken(token) {
-  return userCollection.findOne({ token: token });
+  return personCollection.findOne({ token: token });
 }
 
 module.exports = { addPerson, getPerson, addAttribute, getUserByToken };
