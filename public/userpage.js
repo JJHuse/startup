@@ -6,7 +6,6 @@ function place_username(){
     }
 }
 
-place_username();
 
 function add_idea(idea) {
     let listItem = document.createElement("li");
@@ -55,8 +54,6 @@ function idea_listening() {document.getElementById("ideaBox").addEventListener("
 });
 }
 
-setup_idealist();
-idea_listening();
 
 function today(){
     const today = new Date();
@@ -68,14 +65,11 @@ function today(){
     return year + "-" + month + "-" + day;
 
 }
-
 function set_date(){
     date = today();
     today_element = document.getElementById('today')
     today_element.textContent = 'TODAY: ' + date;
 }
-
-set_date();
 
 
 function add_progress_element(subtask){
@@ -94,10 +88,20 @@ function add_progress_element(subtask){
     checkbox_child.addEventListener('click', function(){
         if (localStorage.getItem(subtask) === 'true'){
             localStorage.setItem(subtask,false);
+            fetch(`/api/person/${localStorage.username}/attribute`, {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify({ attribute: subtask, value: false })
+            });
             this.className = 'mycheckbox_default';
         }
         else{
             localStorage.setItem(subtask,true);
+            fetch(`/api/person/${localStorage.username}/attribute`, {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify({ attribute: subtask, value: true })
+            });
             this.className = 'mycheckbox_checked';
         }
     })
@@ -105,7 +109,6 @@ function add_progress_element(subtask){
     const subtask_child = document.createElement('span');
     subtask_child.textContent = subtask;
     listItem.appendChild(subtask_child)
-
 
 
     let ul = document.getElementById("progressList");
@@ -119,7 +122,6 @@ function add_progress_element(subtask){
     }
 }
 function setup_progress(){
-
     stored = localStorage.getItem('subtask_list');
     if (stored !== null){
         const placeholder = document.getElementById('progress_placeholder')
@@ -145,7 +147,14 @@ function displayQuote() {
         containerEl.appendChild(quoteEl);
         containerEl.appendChild(authorEl);
       });
-  }
+}
+
+place_username();
+
+setup_idealist();
+idea_listening();
+
+set_date();
 
 setup_progress();
 displayQuote();

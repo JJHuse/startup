@@ -1,5 +1,6 @@
 const thingSet = new Set(['name', 'email']);
 const listSet = new Set(['vision_list', 'subtask_list', 'idea_list']);
+const excludeSet = new Set(['password', 'token', '_id']);
 
 async function bring_local(username, password){
   console.log('bring_local');
@@ -22,6 +23,9 @@ async function bring_local(username, password){
         }
         else if(listSet.has(key)){
             localStorage.setItem(key, JSON.stringify(data[key]));
+        }
+        else if(!excludeSet.has(key)){
+            localStorage.setItem(key, data[key]);
         }
     } 
   } else {
