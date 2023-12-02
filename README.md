@@ -2,8 +2,7 @@
 https://startup.quesadillasmith.net
 
 ## Websocket
-Current websocket goal: checkbox notifications
-catchup TODO: save check
+Current websocket goal: checkbox notifications. Send: same place as database. Receive: notifications bar
 - Backend:
 - Frontend:
 - Data sent:
