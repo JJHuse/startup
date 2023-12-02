@@ -38,7 +38,9 @@ async function getPerson(id) {
   console.log('getPerson');
   const query = { username: id};
   const person = await personCollection.find(query).next();
-  console.log('person: ', person.username);
+  if (person){
+    console.log('person: ', person.username);
+  }
   return person;
 }
 
