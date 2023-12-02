@@ -1,6 +1,14 @@
 # startup: Vision
 https://startup.quesadillasmith.net
 
+## Websocket
+Current websocket goal: checkbox notifications
+catchup TODO: save check
+- Backend:
+- Frontend:
+- Data sent:
+- Data displayed:
+
 ## Login
 - New user: 'create' button
 - Existing user: 'log in' button
