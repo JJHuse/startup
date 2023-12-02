@@ -91,7 +91,7 @@ class Profile {
         else {checkbox_child.className = 'mycheckbox_checked';}
 
         checkbox_child.style.display = 'inline';
-        checkbox_child.addEventListener('click', function(){
+        checkbox_child.addEventListener('click', () => {
             if (localStorage.getItem(subtask) === 'true'){
                 localStorage.setItem(subtask,false);
                 fetch(`/api/person/${localStorage.username}/attribute`, {
@@ -99,7 +99,7 @@ class Profile {
                     headers: {'content-type': 'application/json'},
                     body: JSON.stringify({ attribute: subtask, value: false })
                 });
-                this.className = 'mycheckbox_default';
+                checkbox_child.className = 'mycheckbox_default';
             }
             else{
                 localStorage.setItem(subtask,true);
@@ -108,7 +108,7 @@ class Profile {
                     headers: {'content-type': 'application/json'},
                     body: JSON.stringify({ attribute: subtask, value: true })
                 });
-                this.className = 'mycheckbox_checked';
+                checkbox_child.className = 'mycheckbox_checked';
                 this.broadcastEvent(localStorage.username, subtask);
             }
         })
@@ -134,7 +134,7 @@ class Profile {
             const placeholder = document.getElementById('progress_placeholder')
             placeholder.parentNode.removeChild(placeholder)
             let stored_list = JSON.parse(stored)
-            stored_list.forEach(this.add_progress_element)
+            stored_list.forEach(this.add_progress_element.bind(this))
         }
     }
     displayQuote() {
@@ -157,7 +157,7 @@ class Profile {
     }
 
     configureWebSocket() {
-        const protocol = 'wss';
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
         this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
         // this.socket.onopen = (event) => {
         //   this.displayMsg('system', 'game', 'connected');
