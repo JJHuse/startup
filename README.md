@@ -2,11 +2,10 @@
 https://startup.quesadillasmith.net
 
 ## Websocket
-Current websocket goal: checkbox notifications. Send: same place as database. Receive: notifications bar
-- Backend:
-- Frontend:
-- Data sent:
-- Data displayed:
+- Backend: peerProxy.js
+- Frontend: userpage.js now has websocket methods
+- Data sent: Subtask progress. When the box is checked, the socket sends an update to all other users.
+- Data displayed: Subtask progress. When the update is received, the notifications box lights up and adds to its dropdown.
 
 ## Login
 - New user: 'create' button

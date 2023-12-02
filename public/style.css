@@ -3,6 +3,7 @@
 :root{
     --primary-color: hsl(48, 51%, 47%);
     --secondary-color: hsl(48, 51%, 40%);
+    --tertiary-color: hsl(48, 51%, 60%);
 }
 
 * {
@@ -143,6 +144,10 @@ body {
 .notifications_box{
     padding-left:1em;
     padding-right: 0.5em;
+}
+.notify{
+    background-color: var(--tertiary-color);
+    padding-left: 10px;
 }
 .header-nav{
     display: flex;

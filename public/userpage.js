@@ -169,22 +169,32 @@ class Profile {
           const msg = JSON.parse(await event.data.text());
           this.beNotified(msg.from, msg.value);
         };
-      }
-    
-      beNotified(from, msg) {
-        const notifications = document.querySelector('.dropdown-content');
-        notifications.innerHTML =
-          `<a>${from} just accomplished this daily task: ${msg}</a>` + notifications.innerHTML;
-      }
-    
-      broadcastEvent(from, value) {
-        const event = {
-          from: from,
-          type: 'taskNotification',
-          value: value,
-        };
-        this.socket.send(JSON.stringify(event));
-      }
+    }
+
+    beNotified(from, msg) {
+    const notifications = document.querySelector('.dropdown-content');
+    notifications.innerHTML =
+        `<a>${from} just accomplished this daily task: ${msg}</a>` + notifications.innerHTML;
+    this.light_up_notifications();
+    }
+
+    broadcastEvent(from, value) {
+    const event = {
+        from: from,
+        type: 'taskNotification',
+        value: value,
+    };
+    this.socket.send(JSON.stringify(event));
+    }
+
+    light_up_notifications(){
+        const notifications = document.getElementById('notifications_box');
+        notifications.classList.add('notify');
+
+        setTimeout(() => {
+            notifications.classList.remove('notify');
+        }, 1000);
+    }
 }
 
 const profile = new Profile();
