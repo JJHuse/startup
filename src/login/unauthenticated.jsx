@@ -57,7 +57,7 @@ export function Unauthenticated(props) {
       console.log('Going to bring local');
       await bring_local(username, password);
       console.log('Done bringing local');
-      window.location.href = "userpage.html";
+      window.location.href = "profile";
     } catch {
       console.log('login catch');
       loginError();

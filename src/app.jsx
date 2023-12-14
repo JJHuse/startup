@@ -1,6 +1,6 @@
 import React from 'react';
 import './app.css';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes} from 'react-router-dom';
 import { Login } from './login/login';
 import { Profile} from './profile/profile';
 import { Info } from './info/info';
@@ -12,25 +12,44 @@ export default function App() {
   const currentAuthState = username ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
 
+  function logout() {
+    fetch(`/api/auth/logout`, {
+      method: 'delete',
+    }).then(() => (window.location.href = '/'))
+    .finally(() => {
+        localStorage.clear();
+        setAuthState(AuthState.Unauthenticated);
+        setUserName('');
+    });
+  }
   return <BrowserRouter>
+    <header>
+      <nav className="header-nav">
+          <table className="topbar">
+              <td>
+                  <NavLink className="topbar-link" to='profile'>Profile</NavLink>
+              </td>
+              <td className="dropdown">
+                  <div className="topbar-link">Notifications</div>
+                  <div className="dropdown-content">
+                      <NavLink to='partner'>Granddaddy Space inspired someone today!</NavLink>
+                  </div>
+              </td>
+          </table>
+          <NavLink className="top-right topbar-link" onclick="">Log out</NavLink>
+      </nav>
+    </header>
     <div id="charybdis" className='body'>
-      <header>
-          <nav className="header-nav">
-              <table className="topbar">
-                  <td>
-                      <NavLink className="topbar-link" to='profile'>Profile</NavLink>
-                  </td>
-                  <td className="dropdown">
-                      <div className="topbar-link">Notifications</div>
-                      <div className="dropdown-content">
-                          <NavLink to='partner'>Granddaddy Space inspired someone today!</NavLink>
-                      </div>
-                  </td>
-              </table>
-              <NavLink className="top-right topbar-link" onclick="logout();">Log out</NavLink>
-          </nav>
-      </header>
       <Routes>
+        {authState === AuthState.Authenticated && (
+        <Route path='/profile' element={<Profile />}/>
+        )}
+        {authState === AuthState.Authenticated && (
+        <Route authState={authState} path='/info' element={<Info />} />
+        )}
+        {authState === AuthState.Authenticated && (
+        <Route authState={authState} path='/partner' element={<Partner />} />
+        )}
         <Route
           path='/'
           element={
@@ -45,9 +64,6 @@ export default function App() {
           }
           exact
         />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/info' element={<Info />} />
-        <Route path='/partner' element={<Partner />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <footer>
