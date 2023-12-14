@@ -1,28 +1,45 @@
 import React from 'react';
 import './app.css';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { Profile} from './profile/profile';
+import { Info } from './info/info';
+import { Partner } from './partner/partner';
 
 export default function App() {
-  return <div id="charybdis" className='body'>
-    <header>
-        <nav class="header-nav">
-            <table class="topbar">
-                <td>
-                    <a class="topbar-link" href="userpage.html">Profile</a>
-                </td>
-                <td class="dropdown">
-                    <div class="topbar-link">Notifications</div>
-                    <div class="dropdown-content">
-                        <a href="partnerpage.html">Granddaddy Space inspired someone today!</a>
-                    </div>
-                </td>
-            </table>
-            <a class="top-right topbar-link" onclick="logout();">Log out</a>
-        </nav>
-    </header>
-    <main>App components here</main>
-    <footer>
-        <span class="text-reset">Ethan G Smith</span>
-        <a href="https://github.com/JJHuse/startup">GitHub</a>
-    </footer>
-    </div>;
+  return <BrowserRouter>
+    <div id="charybdis" className='body'>
+      <header>
+          <nav className="header-nav">
+              <table className="topbar">
+                  <td>
+                      <NavLink className="topbar-link" to='profile'>Profile</NavLink>
+                  </td>
+                  <td className="dropdown">
+                      <div className="topbar-link">Notifications</div>
+                      <div className="dropdown-content">
+                          <NavLink to='partner'>Granddaddy Space inspired someone today!</NavLink>
+                      </div>
+                  </td>
+              </table>
+              <NavLink className="top-right topbar-link" onclick="logout();">Log out</NavLink>
+          </nav>
+      </header>
+      <Routes>
+        <Route path='/' element={<Login />} exact />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/info' element={<Info />} />
+        <Route path='/partner' element={<Partner />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+      <footer>
+          <span className="text-reset">Ethan G Smith</span>
+          <NavLink href="https://github.com/JJHuse/startup">GitHub</NavLink>
+      </footer>
+      </div>
+    </BrowserRouter>;
+}
+
+function NotFound() {
+  return <main>404: Return to sender. Address unknown.</main>;
 }
