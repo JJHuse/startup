@@ -5,8 +5,13 @@ import { Login } from './login/login';
 import { Profile} from './profile/profile';
 import { Info } from './info/info';
 import { Partner } from './partner/partner';
+import { AuthState } from './login/authState';
 
 export default function App() {
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
+
   return <BrowserRouter>
     <div id="charybdis" className='body'>
       <header>
@@ -26,7 +31,20 @@ export default function App() {
           </nav>
       </header>
       <Routes>
-        <Route path='/' element={<Login />} exact />
+        <Route
+          path='/'
+          element={
+            <Login
+              userName={userName}
+              authState={authState}
+              onAuthChange={(userName, authState) => {
+                setAuthState(authState);
+                setUserName(userName);
+              }}
+            />
+          }
+          exact
+        />
         <Route path='/profile' element={<Profile />} />
         <Route path='/info' element={<Info />} />
         <Route path='/partner' element={<Partner />} />

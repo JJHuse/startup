@@ -1,23 +1,13 @@
 import React from 'react';
+import { Unauthenticated } from './unauthenticated';
 
-export function Login() {
+export function Login({ userName, authState, onAuthChange }) {
   return (
     <main id="home-main">
         <section id="logo">
-            <img src="Vision_ready.jpg" alt="Vision eye"/>
+            <img src="Vision_ready.jpg" alt="Vision logo"/>
         </section>
-        <section id="loginregion">
-            <nav className="login_nav">
-                <input type="text" id="username" placeholder="Username"/>
-            </nav>
-            <nav className="login_nav">
-                <input type="password" id="password" placeholder="Password"/>
-            </nav>
-            <nav className="login_nav" id="loginbuttons">
-                <button className="underbutton" id="underbutton1" onclick="login()">Log In</button>
-                <button className="underbutton" id="underbutton2" onclick="create_user()">Create</button>
-            </nav>
-        </section>
+        <Unauthenticated/>
     </main>
   );
 }

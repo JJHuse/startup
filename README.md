@@ -1,6 +1,16 @@
 # startup: Vision
 https://startup.quesadillasmith.net
 
+## React
+- `create-react-app` used
+- Multiple functional components: 
+- React router
+- React hooks: 
+TODO
+- Bar only appears on authentication
+- Data to db
+- Go through each function
+
 ## Websocket
 - Backend: peerProxy.js
 - Frontend: userpage.js now has websocket methods
