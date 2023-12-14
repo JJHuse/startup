@@ -12,14 +12,15 @@ export default function App() {
   const currentAuthState = username ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
 
-  function logout() {
+  function logout(username) {
     fetch(`/api/auth/logout`, {
       method: 'delete',
-    }).then(() => (window.location.href = '/'))
+    })
     .finally(() => {
         localStorage.clear();
         setAuthState(AuthState.Unauthenticated);
-        setUserName('');
+        setUserName(username);
+        window.location.href = '/';
     });
   }
   return <BrowserRouter>
@@ -36,7 +37,7 @@ export default function App() {
                   </div>
               </td>
           </table>
-          <NavLink className="top-right topbar-link" onclick="">Log out</NavLink>
+          <NavLink className="top-right topbar-link" onClick={()=>logout(username)}>Log out</NavLink>
       </nav>
     </header>
     <div id="charybdis" className='body'>
