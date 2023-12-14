@@ -10,6 +10,11 @@
     font-family: Tahoma, Sans-serif;
 }
 
+#charybdis{
+    margin: 0;
+    padding: 0;
+}
+
 button {
     font-family:Roboto;
     background-color:var(--primary-color);
@@ -101,8 +106,12 @@ footer{
     width:100%;
 }
 
+body{
+    margin:0;
+}
+
 .body {
-    width: 100%;
+    width:100%;
     height:100vh;
     margin:0;
     display: flex;
@@ -150,6 +159,7 @@ footer{
     padding-left: 10px;
 }
 .header-nav{
+    box-sizing: border-box;
     display: flex;
     background-color: var(--primary-color);
     justify-content: space-between;
