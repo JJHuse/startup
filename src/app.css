@@ -25,11 +25,14 @@ button {
 .underbutton{
     width:50%;
 }
-#underbutton1{
+.underbutton1{
     border-bottom-left-radius: 5rem;
 }
-#underbutton2{
+.underbutton2{
     border-bottom-right-radius: 5rem;
+}
+#logged_in{
+    width:100%;
 }
 #loginbuttons {
     display: flex;

@@ -3,9 +3,9 @@ https://startup.quesadillasmith.net
 
 ## React
 - `create-react-app` used
-- Multiple functional components: 
-- React router
-- React hooks: 
+- Multiple functional components: login/logout
+- React router used
+- React hooks: useState for authentication
 TODO
 - Bar only appears on authentication
 - Data to db
@@ -94,6 +94,7 @@ Toward the end of 2020, I joked with my family about a New Year's resolution: ea
 - Input box products should be removable
 - Individual profile pics
 - Remove url no-logout loophole
+- Expiring authtoken
 
 ## General wishlist
 - Round profile pictures

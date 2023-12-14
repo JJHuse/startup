@@ -1,9 +1,8 @@
 import React from 'react';
 
 export function Unauthenticated(props) {
-  const [userName, setUserName] = React.useState(props.userName);
+  const [username, setUserName] = React.useState(props.username);
   const [password, setPassword] = React.useState('');
-  const [displayError, setDisplayError] = React.useState(null);
 
   const thingSet = new Set(['name', 'email']);
   const listSet = new Set(['vision_list', 'subtask_list', 'idea_list']);
@@ -49,9 +48,6 @@ export function Unauthenticated(props) {
   }
 
   async function login() {
-    const username = document.querySelector("#username")?.value;
-    const password = document.querySelector("#password")?.value;
-
     if (username.trim() === "" || password.trim() === "") {
       loginError('Enter username and password');
       return;
@@ -69,9 +65,6 @@ export function Unauthenticated(props) {
   }
 
   async function create_user() {
-    const username = document.querySelector("#username")?.value;
-    const password = document.querySelector("#password")?.value;
-
     if (username.trim() === "" || password.trim() === "") {
       loginError('Enter username and password');
       return;
@@ -106,14 +99,25 @@ export function Unauthenticated(props) {
   return (
     <section id="loginregion">
         <nav className="login_nav">
-            <input type="text" id="username" placeholder="Username"/>
+            <input 
+              type="text" 
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
+              id="username" 
+              placeholder="Username"
+            />
         </nav>
         <nav className="login_nav">
-            <input type="password" id="password" placeholder="Password"/>
+            <input 
+              type="password" 
+              id="password" 
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
         </nav>
         <nav className="login_nav" id="loginbuttons">
-            <button className="underbutton" id="underbutton1" onclick="login()">Log In</button>
-            <button className="underbutton" id="underbutton2" onclick="create_user()">Create</button>
+            <button className="underbutton underbutton1" onClick={()=>login()}>Log In</button>
+            <button className="underbutton underbutton2" onclick={()=>create_user()}>Create</button>
         </nav>
     </section>
   );
