@@ -8,7 +8,6 @@ https://startup.quesadillasmith.net
 - React hooks: useState for authentication
 TODO
 - Data to db
-- Go through each function
 
 ## Websocket
 - Backend: peerProxy.js

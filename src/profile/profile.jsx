@@ -8,7 +8,7 @@ export function Profile() {
     <main>
         <div id="userinfo-profile">
             <img src="father_nature.png" alt="Father Nature" width="100px" height="100px" />
-            <span id="profile_name">Your Name Here</span>
+            <span id="profile_name">{localStorage.username}</span>
             <span id="quote"></span>
         </div>
     <div className='list_group'>
