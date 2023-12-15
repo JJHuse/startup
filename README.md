@@ -3,11 +3,10 @@ https://startup.quesadillasmith.net
 
 ## React
 - `create-react-app` used
-- Multiple functional components: login/logout
+- Multiple functional components: login/logout, user profile idea list
 - React router used
-- React hooks: useState for authentication
-TODO
-- Data to db
+- React hooks: useState for authentication and user profile ideas
+
 
 ## Websocket
 - Backend: peerProxy.js
