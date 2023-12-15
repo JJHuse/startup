@@ -65,7 +65,6 @@ export function Info() {
             </table>
         </div>
         <script src="userinfo.js"></script>
-        <script src="logout.js"></script>
     </main>
   );
 }

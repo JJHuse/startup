@@ -1,0 +1,24 @@
+.list_head {
+    font-size: 2em;
+    text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-bottom: 2px solid gray;
+
+}
+.list_group {
+    display: flex;
+    height: 70%;
+}
+.list_box {
+    width: 33%;
+    margin-top: 2em;
+    border-radius: 1em;
+    border: 2px solid gray;
+}
+.list_body {
+    margin-top: 1em;
+}
+.list_input {
+    margin-right: 2em;
+}

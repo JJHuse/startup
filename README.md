@@ -7,7 +7,6 @@ https://startup.quesadillasmith.net
 - React router used
 - React hooks: useState for authentication
 TODO
-- Logout
 - Data to db
 - Go through each function
 
