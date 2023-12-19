@@ -69,7 +69,7 @@ export default function App() {
       </Routes>
       <footer>
           <span className="text-reset">Ethan G Smith</span>
-          <NavLink href="https://github.com/JJHuse/startup">GitHub</NavLink>
+          <a href="https://github.com/JJHuse/startup">GitHub</a>
       </footer>
       </div>
     </BrowserRouter>;
