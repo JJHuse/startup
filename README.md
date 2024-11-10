@@ -1,5 +1,6 @@
 # startup: Vision
 https://startup.quesadillasmith.net
+(Website no longer active)
 
 ## React
 - `create-react-app` used
