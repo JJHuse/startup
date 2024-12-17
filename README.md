@@ -1,5 +1,5 @@
 # startup: Vision
-https://startup.quesadillasmith.net
+[https://]startup.quesadillasmith.net
 (Website no longer active)
 
 ## React
